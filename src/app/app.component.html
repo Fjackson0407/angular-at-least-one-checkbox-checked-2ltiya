@@ -1,0 +1,42 @@
+<div class="container">
+  <ng-container [formGroup]="form">
+    <div class="form-group">
+      <label for="myInput">Email address <span class="highlight">*</span></label>
+      <input type="text" class="form-control" id="myInput" placeholder="name@example.com" formControlName="myInput">
+      <div class="invalid-feedback" *ngIf="form.controls['myInput'].errors && form.controls['myInput'].errors.required">Email is required</div>
+      <div class="invalid-feedback" *ngIf="form.controls['myInput'].errors && form.controls['myInput'].errors.email">Please insert a valid email</div>
+    </div>
+
+    <!-- ...more form controls... -->
+
+    <div class="form-group" formGroupName="myCheckboxGroup">
+      <div class="label">Check at least one checkbox <span class="highlight">*</span></div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" formControlName="myCheckbox1" id="myCheckbox1">
+        <label class="custom-control-label" for="myCheckbox1">Happy</label>
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" formControlName="myCheckbox2" id="myCheckbox2">
+        <label class="custom-control-label" for="myCheckbox2">Grouped</label>
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" formControlName="myCheckbox3" id="myCheckbox3">
+        <label class="custom-control-label" for="myCheckbox3">Checkboxes</label>
+      </div>
+
+      <div class="invalid-feedback" *ngIf="form.controls['myCheckboxGroup'].errors && form.controls['myCheckboxGroup'].errors.requireOneCheckboxToBeChecked">At least one checkbox is required to check</div>
+    </div>
+
+    <!-- ...more form controls... -->
+
+    <div class="form-group">
+      <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" formControlName="mySingleCheckbox" id="mySingleCheckbox">
+      <label class="custom-control-label" for="mySingleCheckbox">Check this lonely checkbox <span class="highlight">*</span></label>
+    </div>
+    <div class="invalid-feedback" *ngIf="form.controls['mySingleCheckbox'].errors && form.controls['mySingleCheckbox'].errors.required">This checkbox must be checked</div>
+    </div>
+  </ng-container>
+
+  <!-- TODO: This form is very static. Of course you could create it dynamically by using creating an additional array that holds the the form-data(key of FormControl, label, required, etc.) and create the template automatically by use of *ngFor -->
+</div>

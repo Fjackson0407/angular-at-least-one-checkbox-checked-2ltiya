@@ -1,0 +1,7 @@
+/* Add application styles & imports to this file! */
+
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css');
+
+.invalid-feedback {
+  display: block;
+}
